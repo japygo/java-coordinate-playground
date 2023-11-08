@@ -1,8 +1,9 @@
 package coordinate.domain;
 
-import coordinate.domain.Coordinate;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -40,5 +41,15 @@ class CoordinateTest {
         assertThatThrownBy(() -> {
             Coordinate.from("(1,25)");
         }).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @ParameterizedTest
+    @DisplayName("좌표 정보가 올바른지 확인한다")
+    @CsvSource(value = {
+            "(1,2) : true", "1,2) : false", "(1,2 : false", "(12) : false",
+            "(1,25) : false", "(25,1) : false", "(1,2,3) : false"},
+            delimiter = ':')
+    void valid_util(String coordinate, boolean result) {
+        assertThat(Coordinate.valid(coordinate)).isEqualTo(result);
     }
 }
