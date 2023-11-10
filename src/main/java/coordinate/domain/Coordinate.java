@@ -60,6 +60,22 @@ public class Coordinate {
                 .collect(Collectors.toList());
     }
 
+    public int getDifferenceOfX(Coordinate coordinate) {
+        return coordinate.getDifferenceOfX(x);
+    }
+
+    private int getDifferenceOfX(int x) {
+        return this.x - x;
+    }
+
+    public int getDifferenceOfY(Coordinate coordinate) {
+        return coordinate.getDifferenceOfY(y);
+    }
+
+    private int getDifferenceOfY(int y) {
+        return this.y - y;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
