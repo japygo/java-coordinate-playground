@@ -31,6 +31,11 @@ public class Coordinates {
         return Arrays.stream(coordinates.split(DELIMITER)).allMatch(Coordinate::valid);
     }
 
+    public boolean isContain(int x, int y) {
+        Coordinate coordinate = new Coordinate(x, y);
+        return coordinates.stream().anyMatch(coordinate::equals);
+    }
+
     public List<Coordinate> getCoordinates() {
         return coordinates;
     }
