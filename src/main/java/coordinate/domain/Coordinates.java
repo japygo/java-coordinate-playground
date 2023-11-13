@@ -49,6 +49,10 @@ public class Coordinates {
                 coordinates.stream().map(Coordinate::getY).collect(Collectors.toSet()).size() == 2;
     }
 
+    public boolean isTriangle() {
+        return coordinates.size() == 3;
+    }
+
     public List<Coordinate> getCoordinates() {
         return coordinates;
     }

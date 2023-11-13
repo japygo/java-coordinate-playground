@@ -30,4 +30,17 @@ class CoordinateCalculatorTest {
         assertThat(CoordinateCalculator.rectangleArea(coordinates))
                 .isEqualTo(96, Offset.offset(0.00099));
     }
+
+    @Test
+    @DisplayName("삼각형 넓이를 계산한다")
+    void triangleArea() {
+        Coordinates coordinates =
+                new Coordinates(Arrays.asList(
+                        new Coordinate(10, 10),
+                        new Coordinate(14,15),
+                        new Coordinate(20, 8)
+                ));
+        assertThat(CoordinateCalculator.triangleArea(coordinates))
+                .isEqualTo(29.0, Offset.offset(0.00099));
+    }
 }

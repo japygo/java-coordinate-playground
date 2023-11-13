@@ -17,7 +17,7 @@ public class InputView {
         }
 
         Coordinates coordinates = new Coordinates(coordinate);
-        if (!coordinates.isLine() && !coordinates.isRectangle()) {
+        if (!coordinates.isLine() && !coordinates.isRectangle() && !coordinates.isTriangle()) {
             return enterCoordinate();
         }
 
