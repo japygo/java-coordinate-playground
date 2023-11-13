@@ -36,6 +36,19 @@ public class Coordinates {
         return coordinates.stream().anyMatch(coordinate::equals);
     }
 
+    public boolean isLine() {
+        return coordinates.size() == 2;
+    }
+
+    public boolean isRectangle() {
+        if (coordinates.size() != 4) {
+            return false;
+        }
+
+        return coordinates.stream().map(Coordinate::getX).collect(Collectors.toSet()).size() == 2 &&
+                coordinates.stream().map(Coordinate::getY).collect(Collectors.toSet()).size() == 2;
+    }
+
     public List<Coordinate> getCoordinates() {
         return coordinates;
     }
