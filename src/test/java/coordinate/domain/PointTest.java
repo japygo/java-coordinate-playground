@@ -1,5 +1,6 @@
 package coordinate.domain;
 
+import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -24,5 +25,13 @@ class PointTest {
         assertThatThrownBy(() -> new Point(1, 25))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("y좌표는 0~24 사이의 수입니다.");
+    }
+
+    @DisplayName("두 좌표의 거리를 구한다")
+    @Test
+    void distance() {
+        Point a = new Point(10, 10);
+        Point b = new Point(14, 15);
+        assertThat(a.getDistance(b)).isEqualTo(6.403124, Offset.offset(0.00099));
     }
 }

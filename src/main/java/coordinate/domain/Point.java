@@ -22,6 +22,18 @@ public class Point {
         }
     }
 
+    public double getDistance(Point point) {
+        return squareRoot(square(this.x, point.x), square(this.y, point.y));
+    }
+
+    private double squareRoot(double first, double second) {
+        return Math.sqrt(first + second);
+    }
+
+    private double square(double first, double second) {
+        return Math.pow(first - second, 2);
+    }
+
     public int getX() {
         return x;
     }
