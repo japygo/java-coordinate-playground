@@ -1,5 +1,7 @@
 package coordinate.domain;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,6 +17,23 @@ public class Points {
         if (points == null || points.isEmpty()) {
             throw new IllegalArgumentException("좌표가 비었습니다.");
         }
+    }
+
+    public boolean isDuplicate() {
+        return points.size() != new HashSet<>(points).size();
+    }
+
+    public Figure toFigure() {
+        return getFigureType()
+                .getFunction()
+                .apply(this);
+    }
+
+    private FigureType getFigureType() {
+        return Arrays.stream(FigureType.values())
+                .filter(type -> type.isSameSize(getSize()))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("잘못된 도형입니다."));
     }
 
     public List<Point> getPoints() {
