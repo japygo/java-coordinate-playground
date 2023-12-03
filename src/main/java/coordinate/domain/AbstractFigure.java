@@ -15,7 +15,7 @@ public abstract class AbstractFigure implements Figure {
     }
 
     private void validateSize(Points points) {
-        if (points.getSize() != type.getSize()) {
+        if (!type.isSameSize(points.getSize())) {
             throw new IllegalArgumentException(errorMessage());
         }
     }
