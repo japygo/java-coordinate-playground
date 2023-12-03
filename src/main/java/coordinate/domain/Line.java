@@ -16,4 +16,9 @@ public class Line extends AbstractFigure {
     public double getArea() {
         return getPoints().getPoints().get(0).getDistance(getPoints().getPoints().get(1));
     }
+
+    @Override
+    public String getAreaInfo() {
+        return "두 점 사이 거리는 " + getArea();
+    }
 }

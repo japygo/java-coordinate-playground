@@ -33,6 +33,11 @@ public abstract class AbstractFigure implements Figure {
     }
 
     @Override
+    public boolean hasPoint(int xIndex, int yIndex) {
+        return points.hasPoint(xIndex, yIndex);
+    }
+
+    @Override
     public Points getPoints() {
         return points;
     }

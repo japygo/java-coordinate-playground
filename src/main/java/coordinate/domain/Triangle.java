@@ -25,6 +25,11 @@ public class Triangle extends AbstractFigure {
         return heron(lines.firstLine, lines.secondLine, lines.thirdLine);
     }
 
+    @Override
+    public String getAreaInfo() {
+        return "삼각형 넓이는 " + getArea();
+    }
+
     private double heron(double firstLine, double secondLine, double thirdLine) {
         double s = (firstLine + secondLine + thirdLine) / 2;
         return Math.sqrt(s * (s - firstLine) * (s - secondLine) * (s - thirdLine));

@@ -58,6 +58,10 @@ public class Points {
                 .collect(Collectors.toSet());
     }
 
+    public boolean hasPoint(int xIndex, int yIndex) {
+        return points.stream().anyMatch(point -> point.equals(new Point(xIndex, yIndex)));
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

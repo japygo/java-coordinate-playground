@@ -29,6 +29,11 @@ public class Rectangle extends AbstractFigure {
         return width * height;
     }
 
+    @Override
+    public String getAreaInfo() {
+        return "사각형 넓이는 " + getArea();
+    }
+
     private double getDifference(Set<Integer> set) {
         List<Integer> list = new ArrayList<>(set);
         return Math.abs(list.get(0) - list.get(1));
